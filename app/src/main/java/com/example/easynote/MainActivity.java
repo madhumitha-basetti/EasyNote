@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.new_splashscreen.R;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
