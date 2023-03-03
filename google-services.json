@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "538374180898",
+    "project_id": "signinregister-9ed58",
+    "storage_bucket": "signinregister-9ed58.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538374180898:android:22e4d85c3adec3d4213a7b",
+        "android_client_info": {
+          "package_name": "com.example.easynote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538374180898-ci1mom9jkirk66sj4u4eg784tlot47jo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.easynote",
+            "certificate_hash": "c3c4dd863726acabd284d4b22b0e6565973a7682"
+          }
+        },
+        {
+          "client_id": "538374180898-cehb9jomnsqlmk4u7m6met1q5rmvbtlc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHze4Pej1nLQc7RRdRqqexYLNYL_5krAY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "538374180898-cehb9jomnsqlmk4u7m6met1q5rmvbtlc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

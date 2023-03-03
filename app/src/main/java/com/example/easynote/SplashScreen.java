@@ -8,7 +8,7 @@ import android.os.Handler;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.example.new_splashscreen.R;
+
 
 public class SplashScreen extends AppCompatActivity {
     TextView appname;
@@ -27,7 +27,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i=new Intent(getApplicationContext(),MainActivity.class);
+                Intent i=new Intent(getApplicationContext(),SignIn.class);
                 startActivity(i);
             }
         },5000);
