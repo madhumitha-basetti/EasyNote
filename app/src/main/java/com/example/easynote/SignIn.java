@@ -36,7 +36,7 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final String phoneTxt=phone.getText().toString();
-
+//not a line
                 final String passwordTxt=password.getText().toString();
 
                 if(phoneTxt.isEmpty() || passwordTxt.isEmpty()){
