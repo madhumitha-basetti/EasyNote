@@ -15,24 +15,24 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class SignUp extends AppCompatActivity implements View.OnClickListener{
 
     TextView login;
     Button registerUser;
     EditText txtname,txtemail,txtpassword,txtconpassword,txtphone;
+    ProgressBar progressBar1;
+    int counter=0;
     FirebaseAuth mAuth;
     FirebaseFirestore fStore;
     @Override
@@ -40,7 +40,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         mAuth = FirebaseAuth.getInstance();
-        fStore=FirebaseFirestore.getInstance();
+
 
         registerUser= (Button) findViewById(R.id.registerNowBtn);
         registerUser.setOnClickListener(this);
@@ -58,6 +58,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
 
         login=(TextView)findViewById(R.id.loginNowBtn);
         login.setOnClickListener(this);
+        progressBar1=findViewById(R.id.progressBar);
 
     }
 
@@ -65,10 +66,26 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.registerNowBtn:
-                registerUser();
+                progressBar1.setVisibility(view.VISIBLE);
+                Timer timer=new Timer();
+                TimerTask timerTask=new TimerTask() {
+                    @Override
+                    public void run() {
+
+                        counter++;
+                        progressBar1.setProgress(counter);
+                        if(counter==10){
+                            timer.cancel();
+                            registerUser();
+                        }
+                    }
+                };
+                timer.schedule(timerTask,100,100);
+
                 break;
+
             case R.id.loginNowBtn:
-                startActivity(new Intent(this, Login.class));
+                startActivity(new Intent(SignUp.this, Login.class));
                 break;
 
         }
@@ -82,7 +99,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         String password=txtpassword.getText().toString().trim();
         String password2=txtconpassword.getText().toString().trim();
         String mobile=txtphone.getText().toString().trim();
-        final String[] userID = new String[1];
+
         if(fullname.isEmpty()){
             txtname.setError("Full Name is required");
             txtname.requestFocus();
@@ -110,7 +127,6 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
             txtphone.requestFocus();
             return;
         }
-
         if(!Patterns.EMAIL_ADDRESS.matcher(mail).matches()){
             txtemail.setError("Please Provide valid email");
             txtemail.requestFocus();
@@ -126,26 +142,27 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
             txtconpassword.requestFocus();
             return;
         }
+        FirebaseFirestore fStore=FirebaseFirestore.getInstance();
         mAuth.createUserWithEmailAndPassword(mail,password)
                 .addOnCompleteListener(task -> {
                     if(task.isSuccessful()){
                         Toast.makeText(SignUp.this,"User created",Toast.LENGTH_SHORT).show();
-                        userID[0] =mAuth.getCurrentUser().getUid();
-                        DocumentReference documentReference=fStore.collection("users").document(userID[0]);
+
+
                         Map<String,Object> user=new HashMap<>();
                         user.put("Name",fullname);
                         user.put("Email",mail);
                         user.put("Phone Number",mobile);
 
-                        documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        fStore.collection("users").document(fullname).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
-                                Log.d("TAG","onSuccess:user profile is created for "+userID);
+                                Log.d("TAG","onSuccess:user profile is created for "+fullname);
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Log.d("TAG","onFaillure:user profile is not created for "+userID);
+                                Log.d("TAG","onFaillure:user profile is not created for "+fullname);
                             }
                         });
 

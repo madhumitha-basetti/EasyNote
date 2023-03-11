@@ -3,20 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/img3"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="com.example.easynote.SignUp">
 
+    tools:context="com.example.easynote.SignUp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:gravity="center"
-        android:textColor="#CC000000"
+        android:textColor="#0B0A0A"
         android:fontFamily="sans-serif-condensed"
-        android:textSize="18sp"
+        android:textSize="30sp"
         android:text="SignUp Here"/>
     <EditText
         android:layout_marginTop="20dp"
@@ -24,6 +25,7 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:id="@+id/fullName"
+        android:textColor="@color/black"
         android:hint="Full Name"
         android:maxLines="1"
         android:layout_marginStart="20dp"
@@ -36,6 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="phone"
+        android:textColor="@color/black"
         android:id="@+id/phone"
         android:hint="Mobile"
         android:maxLines="1"
@@ -50,32 +53,52 @@
         android:inputType="textEmailAddress"
         android:id="@+id/email"
         android:hint="Email"
+        android:textColor="@color/black"
         android:maxLines="1"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:paddingEnd="0dp"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="248dp"
+        tools:layout_editor_absoluteX="92dp"
+        app:passwordToggleEnabled="true">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:id="@+id/password"
-        android:hint="password"
-        android:maxLines="1"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:paddingEnd="0dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:id="@+id/password"
+            android:hint="password"
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:paddingEnd="0dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:id="@+id/conpassword"
-        android:hint="Re-enter password"
-        android:maxLines="1"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:paddingEnd="0dp"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="248dp"
+        tools:layout_editor_absoluteX="92dp"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:id="@+id/conpassword"
+            android:hint="Re-enter password"
+            android:maxLines="1"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:paddingEnd="0dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/registerNowBtn"
@@ -83,6 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:textColor="@color/black"
         android:text="SignUp"
         android:layout_marginTop="40dp"/>
 
@@ -97,15 +121,25 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="Already have an account?"/>
         <TextView
             android:layout_marginStart="15dp"
             android:id="@+id/loginNowBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="Login Now"
             android:textStyle="bold"/>
     </LinearLayout>
 
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:outlineAmbientShadowColor="@color/black"
+        android:visibility="gone">
+
+    </ProgressBar>
 
 </LinearLayout>
