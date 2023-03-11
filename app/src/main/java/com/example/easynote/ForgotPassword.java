@@ -3,6 +3,7 @@ package com.example.easynote;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -17,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class ForgotPassword extends AppCompatActivity {
 
     private EditText txtemail;
-    private Button txtreset;
+    private Button txtreset,txtlogin;
 
     FirebaseAuth auth;
 
@@ -30,13 +31,14 @@ public class ForgotPassword extends AppCompatActivity {
 
         txtemail=(EditText)findViewById(R.id.email);
         txtreset=(Button)findViewById(R.id.reset);
+        txtlogin=(Button)findViewById(R.id.loginBtn);
 
         auth=FirebaseAuth.getInstance();
 
         txtreset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              resetPassword();
+                resetPassword();
 
             }
 
@@ -67,5 +69,11 @@ public class ForgotPassword extends AppCompatActivity {
             }
         });
 
+        txtlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ForgotPassword.this,Login.class));
+            }
+        });
     }
 }
