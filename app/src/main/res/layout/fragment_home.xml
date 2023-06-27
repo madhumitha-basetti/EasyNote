@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.easynote.ui.home.HomeFragment">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calendar-Customers"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:id="@+id/cal_cust_btn">
+
+    </Button>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customer-Accounts"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:id="@+id/cust_ac_btn">
+
+    </Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calendar-Materials"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:id="@+id/cal_mat_btn">
+
+    </Button>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Material-Accounts"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:id="@+id/mat_ac_btn">
+
+    </Button>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wages Fuel Entry"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:id="@+id/wages_btn">
+    </Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fuel-Wages-Display"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:id="@+id/cal_fuel_wage_btn">
+
+    </Button>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Workers-Accounts"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:id="@+id/wor_ac_btn">
+    </Button>
+
+</LinearLayout>

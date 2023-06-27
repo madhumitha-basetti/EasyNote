@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.easynote.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -131,11 +132,17 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if(task.isSuccessful()){
-                                        startActivity(new Intent(Login.this,SplashScreen.class));
+                                        startActivity(new Intent(Login.this,MainProcess.class));
                                         Toast.makeText(Login.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
+
                                     }
                                     else{
                                         Toast.makeText(Login.this,"Failed to Login!Please check your credentials",Toast.LENGTH_LONG).show();
+                                        progressBar1.setVisibility(progressBar1.INVISIBLE);
+                                        progressBar1.setVisibility(View.GONE);
+                                        finish();
+                                        startActivity(getIntent());
+
                                     }
                                 }
                             });
@@ -157,6 +164,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     }
                     else{
                         Toast.makeText(Login.this,"Failed to Login!Please check your credentials",Toast.LENGTH_LONG).show();
+                        progressBar1.setVisibility(View.GONE);
+                        finish();
+                        startActivity(getIntent());
                     }
                 }
             });

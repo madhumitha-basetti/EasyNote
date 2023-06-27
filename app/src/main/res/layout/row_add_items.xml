@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+            <EditText
+                android:id="@+id/edit_customer_name"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:hint="Customer Name"
+                android:textSize="14sp"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"></EditText>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinner_item"
+                    android:hint="Item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"></androidx.appcompat.widget.AppCompatSpinner>
+
+            </FrameLayout>
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinner_Quantity"
+                android:hint="Item"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"></androidx.appcompat.widget.AppCompatSpinner>
+
+            <EditText
+                android:id="@+id/edit_customer_amount"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:hint="Amount"
+                android:textSize="14sp"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"></EditText>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radgroup"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/radio_paid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Paid"
+                    />
+
+                <RadioButton
+                    android:id="@+id/radio_unpaid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Unpaid"
+                    />
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+</ScrollView>

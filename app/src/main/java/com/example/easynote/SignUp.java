@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.easynote.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -147,8 +148,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
                 .addOnCompleteListener(task -> {
                     if(task.isSuccessful()){
                         Toast.makeText(SignUp.this,"User created",Toast.LENGTH_SHORT).show();
-
-
+                        progressBar1.setVisibility(progressBar1.INVISIBLE);
                         Map<String,Object> user=new HashMap<>();
                         user.put("Name",fullname);
                         user.put("Email",mail);
