@@ -102,6 +102,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         String mobile=txtphone.getText().toString().trim();
 
         if(fullname.isEmpty()){
+            Toast.makeText(SignUp.this,"Full Name is required",Toast.LENGTH_SHORT).show();
             txtname.setError("Full Name is required");
             txtname.requestFocus();
             return;

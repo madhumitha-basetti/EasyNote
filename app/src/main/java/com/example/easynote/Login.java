@@ -136,6 +136,19 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                         Toast.makeText(Login.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
 
                                     }
+                                    else{
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Toast.makeText(Login.this, "Failed to Login!Please check your credentials", Toast.LENGTH_LONG).show();
+                                                progressBar1.setVisibility(View.GONE);
+
+                                            }
+                                        });
+                                        finish();
+                                        startActivity(getIntent());
+                                        progressBar1.setVisibility(View.GONE);
+                                    }
 
                                 }
                             });
@@ -156,23 +169,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         startActivity(getIntent());
                         progressBar1.setVisibility(View.GONE);
                     }
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(Login.this, "Failed to Login!Please check your credentials", Toast.LENGTH_LONG).show();
-                            progressBar1.setVisibility(View.GONE);
-
-                        }
-                    });
-                    finish();
-                    startActivity(getIntent());
-                    progressBar1.setVisibility(View.GONE);
-
                 }
             });
         }
