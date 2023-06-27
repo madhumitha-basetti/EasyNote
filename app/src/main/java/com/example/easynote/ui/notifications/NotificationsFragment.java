@@ -191,7 +191,7 @@ public class NotificationsFragment extends Fragment {
             FirebaseFirestore.getInstance().collection(type).document().set(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(getContext(), "Added to Firebase", Toast.LENGTH_SHORT).show();
+                      //      Toast.makeText(getContext(), "Added to Firebase", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -204,7 +204,7 @@ public class NotificationsFragment extends Fragment {
             FirebaseFirestore.getInstance().collection(customer.getCustomerName()+" material").document().set(hashMap2).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(getContext(), "Added to Firebase", Toast.LENGTH_SHORT).show();
+                   //         Toast.makeText(getContext(), "Added to Firebase", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -228,11 +228,14 @@ public class NotificationsFragment extends Fragment {
             @Override
             public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException error) {
                 for(DocumentSnapshot snapshot : documentSnapshots){
-                    Toast.makeText(getContext(), snapshot.getString("Name") +snapshot.getString("Item") +snapshot.getString("Quantity"),Toast.LENGTH_SHORT).show();
+               //     Toast.makeText(getContext(), snapshot.getString("Name") +snapshot.getString("Item") +snapshot.getString("Quantity"),Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+        Toast.makeText(getContext(), "Added to Firebase", Toast.LENGTH_SHORT).show();
         return result;
+
     }
 
 

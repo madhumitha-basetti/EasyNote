@@ -79,9 +79,6 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         quanList.add("4");
         quanList.add("5");
         quanList.add("6");
-
-        // final TextView textView = binding.textDashboard;
-        //  dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         binding.calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
@@ -109,12 +106,6 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             case R.id.button_submit_list:
                 if(checkIfValidAndRead()) {
                     Toast.makeText(getContext(),"Succuss",Toast.LENGTH_LONG).show();
-                    //  Intent intent=new Intent(getContext(), CustomerDateEntry.class);
-               /*    Bundle bundle=new Bundle();
-                   bundle.putSerializable("list",customersList);
-                   intent.putExtras(bundle);*/
-                    // startActivity(intent);
-
                 }
                 break;
 
@@ -140,27 +131,24 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
 
             if (!editCustomerName.getText().toString().equals("")) {
                 customer.setCustomerName(editCustomerName.getText().toString().toUpperCase());
-                //     Toast.makeText(getContext(),customer.getCustomerName(),Toast.LENGTH_SHORT).show();
+
             } else {
                 result = false;
             }
             if (!editAmount.getText().toString().equals("")) {
                 customer.setAmount(editAmount.getText().toString());
-                //     Toast.makeText(getContext(),customer.getAmount(),Toast.LENGTH_SHORT).show();
+
             } else {
                 result = false;
             }
             if (spinnerItem.getSelectedItemPosition() != 0) {
                 customer.setItemName(itemList.get(spinnerItem.getSelectedItemPosition()));
-                //      Toast.makeText(getContext(),customer.getItemName(),Toast.LENGTH_SHORT).show();
-
 
             } else {
                 result = false;
             }
             if (spinnerQuan.getSelectedItemPosition() != 0) {
                 customer.setQuantity(quanList.get(spinnerQuan.getSelectedItemPosition()));
-                // Toast.makeText(getContext(),customer.getQuantity(),Toast.LENGTH_SHORT).show();
 
             } else {
                 result = false;
@@ -202,7 +190,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             FirebaseFirestore.getInstance().collection(d).document().set(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(getContext(), "Added to Firebase", Toast.LENGTH_SHORT).show();
+                         //   Toast.makeText(getContext(), "Added to Firebase", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -215,7 +203,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             FirebaseFirestore.getInstance().collection(customer.getCustomerName()).document().set(hashMap2).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(getContext(), "Added to Firebase", Toast.LENGTH_SHORT).show();
+                       //     Toast.makeText(getContext(), "Added to Firebase", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -239,10 +227,12 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             @Override
             public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException error) {
                 for(DocumentSnapshot snapshot : documentSnapshots){
-                    Toast.makeText(getContext(), snapshot.getString("Name") +snapshot.getString("Item") +snapshot.getString("Quantity"),Toast.LENGTH_SHORT).show();
+                 //   Toast.makeText(getContext(), snapshot.getString("Name") +snapshot.getString("Item") +snapshot.getString("Quantity"),Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+        Toast.makeText(getContext(), "Added to Firebase", Toast.LENGTH_SHORT).show();
         return result;
     }
 

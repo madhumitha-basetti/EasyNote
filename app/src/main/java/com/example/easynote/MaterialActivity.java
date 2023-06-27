@@ -59,7 +59,7 @@ public class MaterialActivity extends AppCompatActivity {
 
 
                                 if (!documentSnapshots.isEmpty()) {
-                                    data = data + "\t" + snapshot.getString("Name") + "\t\t" + snapshot.getString("Item") + "\t\t\t\t" + snapshot.getString("Quantity") + "\t\t\t\t" + snapshot.getString("Amount") + "\t\t\t\t\t" + snapshot.getString("Status") + "\n\n";
+                                    data = data + "\t" + snapshot.getString("Name") + "\t\t" + snapshot.getString("Item") + "\t\t\t\t" + snapshot.getString("Quantity") + "\t\t\t\t\t" + snapshot.getString("Amount") + "\t\t\t\t\t" + snapshot.getString("Status") + "\n\n";
                                     if (snapshot.getString("Status").equals("Unpaid")) {
                                         pending = pending + Integer.parseInt(snapshot.getString("Amount"));
                                     } else if (snapshot.getString("Status").equals("Paid")) {

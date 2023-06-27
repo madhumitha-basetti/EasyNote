@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -25,7 +24,7 @@ import com.example.easynote.databinding.FragmentHomeBinding;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    Button cal_cust,cust,cal_mat,mat,wage,fuel,cal_wage,workers;
+    Button cal_cust,cust,cal_mat,mat,wage,cal_wage,workers,logout;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -41,6 +40,7 @@ public class HomeFragment extends Fragment {
         wage=root.findViewById(R.id.wages_btn);
         cal_wage=root.findViewById(R.id.cal_fuel_wage_btn);
         workers=root.findViewById(R.id.wor_ac_btn);
+        logout=root.findViewById(R.id.logout_btn);
 
         cal_cust.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +101,15 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), WorkersAccount.class);
                 startActivity(intent);
+
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.exit(1);
+                getActivity().finish();
 
             }
         });

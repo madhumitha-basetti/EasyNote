@@ -136,20 +136,42 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                         Toast.makeText(Login.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
 
                                     }
-                                    else{
-                                        Toast.makeText(Login.this,"Failed to Login!Please check your credentials",Toast.LENGTH_LONG).show();
-                                        progressBar1.setVisibility(progressBar1.INVISIBLE);
-                                        progressBar1.setVisibility(View.GONE);
-                                        finish();
-                                        startActivity(getIntent());
 
-                                    }
                                 }
                             });
 
                         }
                     }
+                else{
+                        Toast.makeText(Login.this,"No User Found",Toast.LENGTH_SHORT).show();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(Login.this, "Failed to Login!Please check your credentials", Toast.LENGTH_LONG).show();
+                                progressBar1.setVisibility(View.GONE);
 
+                            }
+                        });
+                        finish();
+                        startActivity(getIntent());
+                        progressBar1.setVisibility(View.GONE);
+                    }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(Login.this, "Failed to Login!Please check your credentials", Toast.LENGTH_LONG).show();
+                            progressBar1.setVisibility(View.GONE);
+
+                        }
+                    });
+                    finish();
+                    startActivity(getIntent());
+                    progressBar1.setVisibility(View.GONE);
 
                 }
             });
@@ -159,15 +181,23 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
-                        startActivity(new Intent(Login.this,SplashScreen.class));
+                        startActivity(new Intent(Login.this,MainProcess.class));
                         Toast.makeText(Login.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
                     }
-                    else{
-                        Toast.makeText(Login.this,"Failed to Login!Please check your credentials",Toast.LENGTH_LONG).show();
-                        progressBar1.setVisibility(View.GONE);
+                    else {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(Login.this, "Failed to Login!Please check your credentials", Toast.LENGTH_LONG).show();
+                                progressBar1.setVisibility(View.GONE);
+
+                            }
+                        });
                         finish();
                         startActivity(getIntent());
+                        progressBar1.setVisibility(View.GONE);
                     }
+
                 }
             });
 

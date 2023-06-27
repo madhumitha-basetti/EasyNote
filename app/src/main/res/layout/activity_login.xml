@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img1"
     android:orientation="vertical"
     android:gravity="center"
     tools:context="com.example.easynote.Login">
@@ -16,7 +15,6 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:gravity="center"
-        android:textColor="#FF9800"
         android:fontFamily="sans-serif-condensed"
         android:textSize="25sp"
         android:text="Login Here"/>
@@ -26,7 +24,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
-        android:textColor="@color/black"
         android:id="@+id/email"
         android:hint="Email"
         android:maxLines="1"
@@ -39,7 +36,6 @@
         android:layout_height="wrap_content"
         android:textStyle="italic"
         android:gravity="center"
-        android:textColor="@color/white"
         android:fontFamily="sans-serif-condensed"
         android:textSize="20sp"
         android:text="or"/>
@@ -48,8 +44,6 @@
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:textColor="@color/black"
         android:id="@+id/mobile"
         android:hint="Mobile"
         android:maxLines="1"
@@ -72,7 +66,6 @@
             android:id="@+id/password"
             android:hint="password"
             android:maxLines="1"
-            android:textColor="@color/black"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:paddingEnd="0dp"/>
@@ -86,7 +79,6 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:text="Login"
-        android:textColor="@color/black"
         android:layout_marginTop="40dp"/>
 
     <LinearLayout
@@ -101,7 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/forgetpassword"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:text="Forget Password"/>
         <TextView
@@ -109,7 +101,7 @@
             android:id="@+id/registerNowBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:text="Register Now"
             android:textStyle="bold"/>
 

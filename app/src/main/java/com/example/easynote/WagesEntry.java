@@ -165,8 +165,8 @@ public class WagesEntry extends AppCompatActivity {
             } else {
                 result = false;
             }
-            Toast.makeText(WagesEntry.this, customer.getCustomerName() + "-" + customer.getItemName() + "-" +
-                    customer.getQuantity() + "-" + customer.getAmount() + "-" + customer.getStatus(), Toast.LENGTH_SHORT).show();
+        //    Toast.makeText(WagesEntry.this, customer.getCustomerName() + "-" + customer.getItemName() + "-" +
+          //          customer.getQuantity() + "-" + customer.getAmount() + "-" + customer.getStatus(), Toast.LENGTH_SHORT).show();
 
             HashMap<String, Object> hashMap = new HashMap<>();
             HashMap<String, Object> hashMap2 = new HashMap<>();
@@ -187,7 +187,7 @@ public class WagesEntry extends AppCompatActivity {
             FirebaseFirestore.getInstance().collection("Diesel").document(d).set(hashMap3).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(WagesEntry.this, fuel, Toast.LENGTH_SHORT).show();
+                    //        Toast.makeText(WagesEntry.this, fuel, Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -200,7 +200,7 @@ public class WagesEntry extends AppCompatActivity {
             FirebaseFirestore.getInstance().collection(type).document().set(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(WagesEntry.this, "Added to Firebase", Toast.LENGTH_SHORT).show();
+                   //         Toast.makeText(WagesEntry.this, "Added to Firebase", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -213,7 +213,7 @@ public class WagesEntry extends AppCompatActivity {
             FirebaseFirestore.getInstance().collection(customer.getCustomerName() + " worker").document().set(hashMap2).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(WagesEntry.this, "Added to Firebase", Toast.LENGTH_SHORT).show();
+                   //         Toast.makeText(WagesEntry.this, "Added to Firebase", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -237,12 +237,12 @@ public class WagesEntry extends AppCompatActivity {
             @Override
             public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException error) {
                 for (DocumentSnapshot snapshot : documentSnapshots) {
-                    Toast.makeText(WagesEntry.this, snapshot.getString("Name") + snapshot.getString("Item") + snapshot.getString("Quantity"), Toast.LENGTH_SHORT).show();
+         //           Toast.makeText(WagesEntry.this, snapshot.getString("Name") + snapshot.getString("Item") + snapshot.getString("Quantity"), Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-
+        Toast.makeText(WagesEntry.this, "Added to Firebase", Toast.LENGTH_SHORT).show();
         return result;
     }
 

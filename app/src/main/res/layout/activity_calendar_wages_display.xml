@@ -24,7 +24,6 @@
             android:id="@+id/date"
             android:text="Date"
             android:textSize="30sp"
-            android:textColor="@color/black"
             android:layout_marginLeft="15dp">
 
         </TextView>
