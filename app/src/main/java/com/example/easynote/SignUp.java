@@ -61,6 +61,36 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         login.setOnClickListener(this);
         progressBar1=findViewById(R.id.progressBar);
 
+     /*   registerUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                progressBar1.setVisibility(view.VISIBLE);
+                Timer timer=new Timer();
+                TimerTask timerTask=new TimerTask() {
+                    @Override
+                    public void run() {
+
+                        counter++;
+                        progressBar1.setProgress(counter);
+                        if(counter==10){
+                            timer.cancel();
+                            registerUser();
+                        }
+                    }
+                };
+                timer.schedule(timerTask,100,100);
+
+
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SignUp.this, Login.class));
+            }
+        });         */
     }
 
     @Override
@@ -149,7 +179,6 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
                 .addOnCompleteListener(task -> {
                     if(task.isSuccessful()){
                         Toast.makeText(SignUp.this,"User created",Toast.LENGTH_SHORT).show();
-                        progressBar1.setVisibility(progressBar1.INVISIBLE);
                         Map<String,Object> user=new HashMap<>();
                         user.put("Name",fullname);
                         user.put("Email",mail);
@@ -166,10 +195,17 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
                                 Log.d("TAG","onFaillure:user profile is not created for "+fullname);
                             }
                         });
+                        finish();
+                        startActivity(getIntent());
+                        progressBar1.setVisibility(progressBar1.INVISIBLE);
 
                     }
                     else{
                         Toast.makeText(SignUp.this,"Failed to register!",Toast.LENGTH_LONG).show();
+                        finish();
+                        startActivity(getIntent());
+                        progressBar1.setVisibility(progressBar1.INVISIBLE);
+
                     }
                 });
     }

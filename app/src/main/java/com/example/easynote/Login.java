@@ -33,7 +33,7 @@ import java.util.TimerTask;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView register,forgot;
+    private TextView register,forgot,home;
     private FirebaseAuth mAuth;
     private EditText txtemail, txtpassword,txtphone;
     private Button signin;
@@ -55,6 +55,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         signin = (Button) findViewById(R.id.loginBtn);
         signin.setOnClickListener(this);
 
+        home=(TextView)findViewById(R.id.loginsame);
+        home.setOnClickListener(this);
         txtemail = (EditText)findViewById(R.id.email);
         txtpassword = (EditText)findViewById(R.id.password);
         txtphone=(EditText)findViewById(R.id.mobile);
@@ -93,6 +95,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.forgetpassword:
                 startActivity(new Intent(Login.this, ForgotPassword.class));
+                break;
+
+            case R.id.loginsame:
+                startActivity(new Intent(Login.this, MainProcess.class));
                 break;
         }
     }
