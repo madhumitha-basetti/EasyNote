@@ -2,6 +2,7 @@
 
 This is a Notebook app. Main purpose of this app is to keep track of daily activities of construction materials shipping .
 It includes 
+
 Customer Day Book Entry,
 Material Day Book Entry,
 Customer Accounts,
